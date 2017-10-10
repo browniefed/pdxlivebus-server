@@ -4,16 +4,24 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "now -e TRIMET_KEY=@trimet_key"
+  },
+  "now": {
+    "alias": "pdxlivebus.now.sh"
   },
   "author": "Jason Brown",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.7.1",
+    "dotenv": "^4.0.0",
     "express": "^4.13.4",
     "lodash": "^4.6.1",
     "request": "^2.69.0",
     "request-promise": "^2.0.1",
     "socket.io": "^1.4.5"
+  },
+  "devDependencies": {
+    "prettier": "^1.7.4"
   }
 }
