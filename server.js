@@ -1,18 +1,17 @@
 require("dotenv").config();
 
-var app = require("express")();
-var http = require("http").Server(app);
-var request = require("request-promise");
-var io = require("socket.io")(http);
-var _ = require("lodash");
+const app = require("express")();
+const http = require("http").Server(app);
+const request = require("request-promise");
+const io = require("socket.io")(http);
+const _ = require("lodash");
+const cors = require("cors");
 
-var cors = require("cors");
+const VEHICLE_URL = "http://developer.trimet.org/ws/v2/vehicles";
+let vehicles = [];
+
 
 app.use(cors());
-
-var VEHICLE_URL = "http://developer.trimet.org/ws/v2/vehicles";
-var vehicles = [];
-
 io.set("origins", "*:*");
 
 function getVehicles() {
