@@ -16,12 +16,8 @@
     "cors": "^2.7.1",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "lodash": "^4.6.1",
-    "request": "^2.69.0",
-    "request-promise": "^4.2.2",
-    "socket.io": "^2.0.3"
+    "isomorphic-fetch": "^2.2.1",
+    "socket.io": "^2.0.4"
   },
-  "devDependencies": {
-    "prettier": "^1.7.4"
-  }
+  "devDependencies": {}
 }
