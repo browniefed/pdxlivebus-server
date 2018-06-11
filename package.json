@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development node index.js",
     "start": "NODE_ENV=production node index.js",
     "debug": "node --inspect index.js",
-    "deploy": "now -e TRIMET_KEY=@trimet_key",
+    "deploy": "now -e TRIMET_KEY=@trimet_key -e SF_POSTGRES_USER=@sf_postgres_user -e SF_POSTGRES_SERVER=@sf_postgres_server -e SF_POSTGRES_PASS=@sf_postgres_pass",
     "alias": "now alias"
   },
   "now": {

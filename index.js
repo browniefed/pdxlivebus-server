@@ -36,10 +36,13 @@ io.set("origins", "*:*");
 app.get("/", (req, res) => res.send(vehicles));
 app.get("/reports/stats", (req, res) => {});
 app.get("/reports", async (req, res) => {
+  const LIMIT = 10;
+
   const data = await db
     .select("*")
     .from("reports")
-    .limit(10);
+    .offset((req.query.page || 0) * LIMIT)
+    .limit(LIMIT);
 
   res.send(data);
 });
@@ -61,7 +64,8 @@ app.post("/reports", async (req, res) => {
     .into("reports")
     .return({ inserted: true });
 
-  // broadcast report
+  io.emit("incident_report", insertedReport);
+
 });
 
 io.on("connection", function(socket) {
