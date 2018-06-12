@@ -1,4 +1,6 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
+
 require("./migrate");
 
 const db = require("./db");
@@ -65,7 +67,6 @@ app.post("/reports", async (req, res) => {
     .return({ inserted: true });
 
   io.emit("incident_report", insertedReport);
-
 });
 
 io.on("connection", function(socket) {

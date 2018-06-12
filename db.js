@@ -5,6 +5,7 @@ const knex = require("knex")({
     user: process.env.SF_POSTGRES_USER,
     password: process.env.SF_POSTGRES_PASS,
     database: "safetransit",
+    charset: "utf8",
   },
   migrations: {
     tableName: "migrations",
